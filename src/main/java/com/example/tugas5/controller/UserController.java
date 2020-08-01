@@ -57,8 +57,9 @@ public class UserController {
         return resultMap;
     }
 
-    @PreAuthorize("hasAnyAuthority('admin')")
-    @DeleteMapping("delete")
+//    @PreAuthorize("hasRoles('admin')")
+//@PreAuthorize("hasAnyAuthority('admin')")
+@DeleteMapping("delete")
     Map<String, Object> deleteUser(@RequestParam String id) {
         Map<String, Object> result = new HashMap<>();
         try  {
