@@ -84,4 +84,15 @@ public class ItemController {
         return null;
     }
 
+    @GetMapping("findById")
+    public Item getById(String id){
+        try {
+            if (repo.findById(id).isPresent())
+                return repo.findById(id).get();
+        } catch (Exception e) {
+            return null;
+        }
+        return null;
+    }
+
 }

@@ -76,11 +76,11 @@ public class LayananKurirController {
         return service.getAllLayananPaginated(search, pageable);
     }
 
-    @GetMapping("findByName")
-    public LayananKurir getByName(String nama) {
+    @GetMapping("findById")
+    public LayananKurir getByName(String id) {
         try {
-            if (repo.findByNama(nama).isPresent())
-                return repo.findByNama(nama).get();
+            if (repo.findById(id).isPresent())
+                return repo.findById(id).get();
         } catch (Exception e) {
             return null;
         }

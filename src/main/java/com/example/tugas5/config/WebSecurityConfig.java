@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
 @Configuration
 @EnableWebSecurity
@@ -17,6 +18,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+
         http
                 // starts authorizing configurations
                 .authorizeRequests()
@@ -39,7 +41,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         // TokenAuthenticationFilter will ignore the below paths
         web.ignoring().antMatchers(HttpMethod.POST, "/authenticate");
-        web.ignoring().antMatchers("/api/user/**");
+        web.ignoring().antMatchers("/api/**/");
 
     }
+
 }

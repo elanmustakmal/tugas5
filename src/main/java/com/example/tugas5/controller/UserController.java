@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
-//@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/api/user/")
 public class UserController {
@@ -33,7 +33,6 @@ public class UserController {
     List<User> getusers() {
         return (List<User>) repo.findAll();
     }
-
 
     @PostMapping("insert")
     public Map<String, Object> insertUser (@RequestBody User user) {
@@ -102,7 +101,7 @@ public class UserController {
         return null;
     }
 
-    @PostMapping("/login")
+    @PostMapping("login")
     public Map<String, Object> loginUser(@RequestBody Login body) {
         System.out.println(body.toString());
         User result = service.findByUsername(body.getUsername());

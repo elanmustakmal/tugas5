@@ -26,7 +26,6 @@ public class UserDetailController {
         return (List<UserDetail>) service.findAllUserDetail();
     }
 
-
     @PostMapping("insert")
     public void insertUserDetail (@RequestBody UserDetail userDetail, String userId) {
         service.inserUserDetail(userDetail, userId);

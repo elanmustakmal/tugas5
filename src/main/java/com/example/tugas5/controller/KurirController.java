@@ -56,9 +56,9 @@ public class KurirController {
     }
 
 
-    @GetMapping("getByName")
-    public Kurir getByNama(String nama) {
-        LayananKurir lkResult = lkrepo.findByNama(nama).get();
+    @GetMapping("findByid")
+    public Kurir getByNama(String id) {
+        LayananKurir lkResult = lkrepo.findByNama(id).get();
         Kurir kurir = lkResult.getKurir();
         return kurir;
     }
